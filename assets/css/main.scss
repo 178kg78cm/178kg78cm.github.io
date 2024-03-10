@@ -36,3 +36,9 @@ $brand-color: map-get($brand-colors, "orangered");
 $content-width: {{ site.content_width | default: '920px' }};
 
 @import "yat";
+
+@charset "utf-8";
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap');
+
+
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&family=Song+Myung&display=swap');
