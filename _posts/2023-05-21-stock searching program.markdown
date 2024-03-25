@@ -2,7 +2,7 @@
 layout: post
 title:  "기업 정보 크롤링"
 date:   2023-05-21 19:31:29 +0900
-categories: jekyll update
+categories: python
 ---
 
 ## 문제 개요
