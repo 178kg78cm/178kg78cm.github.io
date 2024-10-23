@@ -6,9 +6,11 @@ categories: python
 ---
 
 ## 문제 개요
-> 투자를 하기 앞서 선행되어야 하는 과정이 기업에 대한 가치 평가이다. 네이버 뉴스와 네이버 증권 사이트의 정보를 크롤링해서 나만의 기업 가치 평가 보조 프로세스를 구현한다. 
 
-  ### install list
+> 투자를 하기 앞서 선행되어야 하는 과정이 기업에 대한 가치 평가이다. 네이버 뉴스와 네이버 증권 사이트의 정보를 크롤링해서 나만의 기업 가치 평가 보조 프로세스를 구현한다.
+
+### install list
+
 pip install requests
 pip install beautifulsoup4
 pip install pandas
@@ -17,7 +19,8 @@ pip install matplotlib
 pip install seaborn
 pip install tkinter
 
-## Main code 
+## Main code
+
 ``` python
 import requests
 from bs4 import BeautifulSoup
@@ -316,4 +319,3 @@ image_label1.pack()
 # 프로그램 실행
 window.mainloop()
 ```
-

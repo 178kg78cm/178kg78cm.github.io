@@ -1,18 +1,16 @@
 ---
 layout: post
-title:  "알고리즘과 시간복잡도"
+title:  "코딩테스트에서의 시간 복잡도와 알고리즘"
 date:   2023-07-01 22:01:29 +0900
 categories: algorithm
 ---
-
-# 코딩테스트에서의 시간 복잡도와 알고리즘
 
 코딩테스트에서는 **입력 크기**과 **시간 제한**에 맞는 **적절한 시간 복잡도**를 가진 알고리즘을 선택해야한다. 일반적으로 **1초에 약 1억 번의 연산**을 진행한다 가정한다.
 
 ---
 
 ## 1. 시간 복잡도 표기법 (Big-O)
-ㅈㅈ
+
 ### 주요 시간 복잡도와 예시
 
 - **O(1) – 상수 시간**
@@ -62,12 +60,14 @@ categories: algorithm
 ## 3. 시간 복잡도와 알고리즘 예시
 
 ### O(1) – 상수 시간
+
 ```cpp
 int arr[1000];
 int x = arr[5];  // O(1)
 ```
 
 ### O(log N) – 로그 시간
+
 ```cpp
 // 이진 탐색 O(log N)
 int binarySearch(int arr[], int target, int n) {
@@ -83,6 +83,7 @@ int binarySearch(int arr[], int target, int n) {
 ```
 
 ### O(N) – 선형 시간
+
 ```cpp
 // 배열에서 최대값 찾기 O(N)
 int findMax(int arr[], int n) {
@@ -95,6 +96,7 @@ int findMax(int arr[], int n) {
 ```
 
 ### O(N log N) – 로그-선형 시간
+
 ```cpp
 // 병합 정렬 O(N log N)
 void mergeSort(int arr[], int low, int high) {
@@ -108,6 +110,7 @@ void mergeSort(int arr[], int low, int high) {
 ```
 
 ### O(N^2) – 이차 시간
+
 ```cpp
 // 버블 정렬 O(N^2)
 void bubbleSort(int arr[], int n) {
@@ -122,6 +125,7 @@ void bubbleSort(int arr[], int n) {
 ```
 
 ### O(2^N) – 지수 시간
+
 ```cpp
 // 재귀적 피보나치 O(2^N)
 int fibonacci(int n) {
@@ -141,6 +145,7 @@ int fibonacci(int n) {
 ---
 
 ### 요약
+
 - 시간 복잡도는 **입력 크기(n)**에 따라 달라지며, 코딩테스트에서 효율적인 알고리즘을 선택하는 것이 중요하다.
 - 일반적으로 **1초에 약 1억 번의 연산**을 처리할 수 있다고 가정하고, 이를 기준으로 알고리즘을 선택한다.
 - **n이 클수록 O(N log N) 이하의 알고리즘**을 사용하는 것이 유리하다.
