@@ -2,8 +2,8 @@
 layout: post
 title:  "이진 탐색 (Binary Search)"
 date:   2024-10-28 22:53:42 +0900
-categories: [algorithm]
-tag : "binary search"
+categories: [Algorithm]
+tag : "Binary search"
 ---
 이진 탐색은 **정렬된 배열이나 리스트에서 특정 값을 빠르게 찾기 위해 사용하는 알고리즘**으로, **탐색 범위를 절반씩 줄여나가는 방식**이다.
 
