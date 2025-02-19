@@ -31,5 +31,24 @@ tag: ["Infineon", "TC275"]
 80000084:   ld.w  d15,[a15]-0x4FF0
 80000088:   insert  d15,d15,0x01,0x17,0x01
 8000008c:   movh.a  a15,0xF004
-80000090:   st.w  [a15]-0x4FF0,d15
+   st.w  [a15]-0x4FF0,d15
 ```
+
+- Reg 직접 제어
+![alt text](image\regi.png)
+instrction 6C~C4
+
+- Ifx 함수 제어
+![alt text](image\func1.png)
+![alt text](image\func2.png)
+instrction 6C~E4
+
+Disassembly의 차이가 32만큼 차이가 난다.
+
+함수를 사용해서 코드를 짠다
+이후 최적화할 때, 함수를 레지스터를 직접 접근하는 방향으로 수정한다
+
+---
+
+## 컴파일러 최적화
+컴파일러 개발자는 최적화 기법 중 **최소한의 노력으로 최대한의 효과**를 낼 수 있는 가장 효율적인 방법을 골라서 컴파일러 최적화에 적용해야한다.
