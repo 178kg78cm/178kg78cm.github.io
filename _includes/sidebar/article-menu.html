@@ -1,122 +1,113 @@
 <style type="text/css" media="screen">
-.post-menu ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
+  .post-menu {
+    position: fixed;
+    top: 100px;
+    right: 20px;
+    width: 250px;
+    background: #f8f9fa;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+  }
+
+  .post-menu-title {
+    font-weight: bold;
+    text-align: center;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #ddd;
+    font-size: 18px;
+    color: #333;
+  }
+
+  .post-menu-content ul {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0;
+  }
+
+  .post-menu-content li {
+    padding: 8px 5px;
+    font-size: 14px;
+    border-bottom: 1px solid #eee;
+    transition: background 0.3s ease-in-out;
+  }
+
+  .post-menu-content li:last-child {
+    border-bottom: none;
+  }
+
+  .post-menu-content li:hover {
+    background: #e9ecef;
+  }
+
+  .post-menu-content li a {
+    text-decoration: none;
+    color: #007bff;
+    display: block;
+  }
+
+  .post-menu-content li.active {
+    font-weight: bold;
+    color: #0056b3;
+  }
 </style>
 
 <div class="post-menu">
-  <div class="post-menu-title">TOC</div>
+  <div class="post-menu-title">Table of Contents</div>
   <div class="post-menu-content"></div>
 </div>
 
 <script>
   function generateContent() {
     var menu = document.querySelector(".post-menu");
-    var menuContent =  menu.querySelector(".post-menu-content");
-    var headings = document.querySelector(".post-content").querySelectorAll("h2, h3, h4, h5, h6");
+    var menuContent = menu.querySelector(".post-menu-content");
+    var headings = document.querySelector(".post-content").querySelectorAll("h2, h3, h4");
 
-    // Hide menu when no headings
     if (headings.length === 0) {
       return menu.style.display = "none";
     }
 
-    // Generate post menu
     var menuHTML = '';
-    for (var i = 0; i < headings.length; i++) {
-      var h = headings[i];
-      menuHTML += (
-        '<li class="h-' + h.tagName.toLowerCase() + '">'
-        + '<a href="#h-' + h.getAttribute('id') + '">' + h.textContent + '</a></li>');
-    }
-
-    menuContent.innerHTML = '<ul>' + menuHTML + '</ul>';
-
-    // The header element
-    var header = document.querySelector('header.site-header');
-
-    function doMenuCollapse(index, over_items) {
-      var items = menuContent.firstChild.children;
-
-      if (over_items == undefined) {
-        over_items = 20;
+    headings.forEach(function(h) {
+      var id = h.getAttribute("id");
+      if (id) {
+        menuHTML += `<li class="h-${h.tagName.toLowerCase()}">
+          <a href="#${id}">${h.textContent}</a></li>`;
       }
+    });
 
-      if (items.length < over_items) {
-        return;
-      }
+    menuContent.innerHTML = `<ul>${menuHTML}</ul>`;
 
-      var activeItem = items[index];
-      var beginItem = activeItem
-      var endItem = activeItem
-      var beginIndex = index;
-      var endIndex = index + 1;
-      while (beginIndex >= 0
-        && !items[beginIndex].classList.contains('h-h2')) {
-        beginIndex -= 1;
-      }
-      while (endIndex < items.length
-        && !items[endIndex].classList.contains('h-h2')) {
-        endIndex += 1;
-      }
-      for (var i = 0; i < beginIndex; i++) {
-        item = items[i]
-        if (!item.classList.contains('h-h2')) {
-          item.style.display = 'none';
+    // Smooth scroll
+    document.querySelectorAll('.post-menu-content a').forEach(anchor => {
+      anchor.addEventListener('click', function (event) {
+        event.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      });
+    });
+
+    // Active menu highlight
+    window.addEventListener("scroll", function () {
+      var fromTop = window.scrollY + 100;
+      var activeItem = null;
+
+      headings.forEach((heading, index) => {
+        if (heading.offsetTop <= fromTop) {
+          activeItem = index;
         }
-      }
-      for (var i = beginIndex + 1; i < endIndex; i++) {
-        item = items[i]
-        // if (!item.classList.contains('h-h2')) {
-          item.style.display = '';
-        // }
-      }
-      for (var i = endIndex; i < items.length; i++) {
-        item = items[i]
-        if (!item.classList.contains('h-h2')) {
-          item.style.display = 'none';
-        }
-      }
-    }
+      });
 
-    // Init menu collapsed
-    doMenuCollapse(-1);
-
-    // Active the menu item
-    window.addEventListener('scroll', function (event) {
-      var lastActive = menuContent.querySelector('.active');
-      var changed = true;
-      var activeIndex = -1;
-      for (var i = headings.length - 1; i >= 0; i--) {
-        var h = headings[i];
-        var headingRect = h.getBoundingClientRect();
-        var headerRect = header.getBoundingClientRect();
-        var headerTop = Math.floor(headerRect.top);
-        var headerHeight = Math.floor(headerRect.height);
-        var headerHeight = headerTop + headerHeight + 20;
-        if (headingRect.top <= headerHeight) {
-          var id = 'h-' + h.getAttribute('id');
-          var a = menuContent.querySelector('a[href="#' + id  + '"]');
-          var curActive = a.parentNode;
-          if (curActive) {
-            curActive.classList.add('active');
-            activeIndex = i;
-          }
-          if (lastActive == curActive) {
-            changed = false;
-          }
-          break;
-        }
-      }
-      if (changed) {
-        if (lastActive) {
-          lastActive.classList.remove('active');
-        }
-        doMenuCollapse(activeIndex);
-      }
-      event.preventDefault();
+      var links = document.querySelectorAll(".post-menu-content li");
+      links.forEach((li, index) => {
+        li.classList.toggle("active", index === activeItem);
+      });
     });
   }
+
   generateContent();
 </script>

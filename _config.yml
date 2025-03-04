@@ -216,4 +216,5 @@ plugins:
   - jekyll-seo-tag
   - jekyll-sitemap
   - jekyll-paginate
+  - jekyll-include-cache
   # - jekyll-spaceship
