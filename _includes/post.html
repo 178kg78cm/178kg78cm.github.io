@@ -1,15 +1,21 @@
 <article class="post">
 	<header class="post-header">
-		<div class="post-title"> 
-			{{ page.title | escape }}
-		</div>
-		<time class="post-date dt-published" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
-			{%- assign date_format = site.date_format | default: "%Y/%m/%d" -%}
-			{{ page.date | date: date_format }}
-		</time>		
+	  <div class="post-title">{{ page.title | escape }}</div>
+	  <time class="post-date dt-published" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
+		{{ page.date | date: "%Y/%m/%d" }}
+	  </time>
+	  <div class="post-tags">
+		{% if page.tags %}
+		  <span>Tags: </span>
+		  {% for tag in page.tags %}
+			<a href="/tags#{{ tag }}">{{ tag }}</a>
+		  {% endfor %}
+		{% endif %}
+	  </div>
 	</header>
-
+  
 	<div class="post-content">
-		{{ content }}
+	  {{ content }}
 	</div>
-</article>
+  </article>
+  
