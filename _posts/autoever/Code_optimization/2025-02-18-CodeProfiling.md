@@ -35,12 +35,12 @@ tag: ["Infineon", "TC275"]
 ```
 
 - Reg 직접 제어
-![alt text](image\regi.png)
+![alt text](/assets/images/regi.png)
 instrction 6C~C4
 
 - Ifx 함수 제어
-![alt text](image\func1.png)
-![alt text](image\func2.png)
+![alt text](/assets/images/func1.png)
+![alt text](/assets/images/func2.png)
 instrction 6C~E4
 
 Disassembly의 차이가 32만큼 차이가 난다.
