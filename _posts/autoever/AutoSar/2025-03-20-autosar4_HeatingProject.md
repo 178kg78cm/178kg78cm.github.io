@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Autosar (3) : Heating Project"
+title:  "Autosar (4) : Heating Project"
 date:   2025-03-19 +09001
 categories: Autoever
 tag: "autosar"
@@ -13,3 +13,17 @@ tag: "autosar"
 - LED2 (Port E Pin 5): 열선 시트가 동작 중임을 표시 (GPIO Out)
 - LED4 (Port E Pin 7): 열선 시트 강도 (PWM)
 - Potentiometer (Port B Pin 4): 열선 시트 강도 조절용 다이얼 (ADC)
+
+![alt text](practice_ASW_architecture.png)
+각 4개의 component를 구현한다. 
+
+- Symbol 설명
+  - ▶--▶
+    Send - Receiver communication (queue를 사용한다.)
+  - O--C
+    Server - Client
+  - Server runable
+    서버에 연결되어 있는 블록으로 client에서 server를 호출할 때마다 동작
+  - Runable
+    client 사이에 연결되어 있는 블록으로 특정 시간 마다 동작한다. 여기서는 10ms인것을 확인할 수 있다.
+
