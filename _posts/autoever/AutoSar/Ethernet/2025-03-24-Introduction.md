@@ -3,7 +3,7 @@ layout: post
 title:  "Ehternet (1) : Ehternet "
 date:   2025-03-19 +09001
 categories: Autoever
-tag: "autosar"
+tag: "ethernet"
 ---
 
 두가닥의 선으로 통신을 가능하게 한 것이 can 통신
@@ -134,3 +134,24 @@ DCU간에 고속의 Ethernet으로 연결되어 다양한 도메인의 정보를
 Vehicle Centralized Architecture이랑 Zonal Architecture을 같이 사용한다.
 Central Computer은 일반적으로 2대 이상있다.
 main 1개, backup 및 sub 1 + @ 개
+
+Event Trigger vs Time triggered
+Deterministck 결정 하능한 경쟁이 좋다.
+
+
+
+
+## 262626
+
+위험, 보안, 문제가 생길 수 있느 부분을 보완할 수 있는 메커니즘이 정의되어 있다.
+
+## ECC
+
+데이터 전송 또는 저장 시 발생할 ㅅ ㅜ있는 오류를 검출하려고 수정할 수 있는 코드를 의미
+데이터 무결성 보장
+
+## Lockstep
+
+ 두 개 이상의 프로세서가 같은 명령어를 동시에 실행하여 결과를 비교하고 일치 여부로 오류를 검출
+
+## Hamming Code
