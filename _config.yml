@@ -50,7 +50,6 @@ baseurl: ""
 favicon: "" # the favicon for your site
 permalink: /:year-:month-:day-:title/
 
-# image_baseurl: "/assets/images/"
 # Yat date format
 # refer to https://shopify.github.io/liquid/filters/date/ if you want to customize this
 yat:
