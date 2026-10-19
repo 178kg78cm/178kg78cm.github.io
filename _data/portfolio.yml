@@ -1,0 +1,94 @@
+# 메인(/) 포트폴리오 페이지 내용.
+# 블로그 글과 About 페이지에서 확인되는 내용만 채웠습니다.
+# "TODO" 표시가 있는 항목은 직접 확인/수정해 주세요.
+
+name: 조현호
+name_en: Embedded
+label: "// PORTFOLIO 2026"
+intro: >-
+  임베디드 소프트웨어를 공부하는 컴퓨터공학 전공생. MCU 레지스터부터 RTOS, AUTOSAR,
+  차량 네트워크까지 하드웨어와 소프트웨어의 경계를 공부하고 기록합니다.
+chips:
+  - Seoul, KR
+  - 광운대학교 컴퓨터공학   # TODO: 정확한 학과명
+  - C / C++ / Embedded
+
+hero_image: "https://images.unsplash.com/photo-1510519138101-570d1dca3d66?w=1400&h=400&fit=crop&auto=format"
+hero_caption: "~/firmware · arm-none-eabi-gcc · (main) ✓"
+
+skills:
+  - category: Languages
+    items: [C, C++, Python]
+  - category: Embedded
+    items: [STM32, Infineon TC275, Arduino, Raspberry Pi, OSEK/AUTOSAR OS]
+  - category: Automotive
+    items: [AUTOSAR, CAN, Automotive Ethernet, OTA, A-SPICE, ISO 26262]
+  - category: Tools
+    items: [CANoe, Ubuntu, Git]
+
+# 경력/교육. period, role, company, desc, tags, link(선택)
+experience:
+  - period: "2024.12 — 2025.04"
+    role: "모빌리티 SW 교육 과정"   # TODO: 정확한 과정명
+    company: "현대오토에버"
+    desc: >-
+      C/C++, 임베디드 MCU(STM32, Infineon TC275), 코드 최적화, 시큐어 코딩, 요구공학,
+      A-SPICE·ISO 26262, AUTOSAR, 차량용 이더넷, CAN/CANoe, 차량용 RTOS(OSEK), OTA까지
+      자동차 소프트웨어 개발 전 과정을 학습.
+    tags: [AUTOSAR, CAN, STM32, RTOS]
+    link: /categories/#h-Autoever
+  - period: "재학 중"   # TODO: 입학/졸업 시기
+    role: "컴퓨터공학 전공"
+    company: "광운대학교"
+    desc: >-
+      임베디드 시스템과 컴퓨터공학 기초(자료구조·알고리즘, 운영체제, 컴퓨터구조)를 공부하고 있습니다.
+    tags: [C, Algorithm, OS]
+
+# 프로젝트. post에 블로그 글 제목을 정확히 적으면 카드가 그 글로 연결됩니다.
+projects:
+  - no: "01"
+    name: "AUTOSAR Heating Project"
+    desc: >-
+      AUTOSAR SWC 4개로 열선 시트 제어기를 구성. 포텐셔미터(ADC) 입력으로 강도를 조절하고
+      PWM으로 LED 밝기를 제어, Sender-Receiver / Client-Server 포트와 10ms 주기 Runnable 설계.
+    tech: [AUTOSAR, SWC, ADC, PWM]
+    year: "2025"
+    post: "Autosar (4) : Heating Project"
+  - no: "02"
+    name: "AUTOSAR Communication Stack 실습"
+    desc: >-
+      AUTOSAR Communication Layers(COM, PduR 등) 구조를 정리하고 실습으로 신호 송수신 경로를 확인.
+    tech: [AUTOSAR, CAN, ComStack]
+    year: "2025"
+    post: "Autosar (5) : Communication Layers"
+  - no: "03"
+    name: "CANoe 네트워크 시뮬레이션"
+    desc: >-
+      CANdb++로 메시지/시그널을 정의하고 CANoe에서 주기·DLC·패턴별 송신 노드를 구성해 차량 네트워크를 시뮬레이션.
+    tech: [CANoe, CANdb++, CAN]
+    year: "2025"
+  - no: "04"
+    name: "기업 정보 크롤링"
+    desc: >-
+      네이버 뉴스·증권·데이터랩 API를 크롤링해 기업 가치 평가를 돕는 데스크톱 툴. 검색 트렌드 시각화와 Tkinter GUI 제공.
+    tech: [Python, BeautifulSoup, pandas, Tkinter]
+    year: "2023"
+    post: "기업 정보 크롤링"
+
+# 학습 로그는 최근 블로그 글에서 자동으로 만들어집니다. 표시 개수:
+study_count: 5
+
+contact_heading: "함께 만들어"
+contact_heading_sub: "볼까요?"
+contact_text: >-
+  임베디드 시스템, 펌웨어, 자동차 소프트웨어 관련 이야기라면 언제든 환영합니다.
+links:
+  - label: Email
+    value: jhh7550@gmail.com
+    href: "mailto:jhh7550@gmail.com"
+  - label: GitHub
+    value: github.com/178kg78cm
+    href: "https://github.com/178kg78cm"
+  - label: Blog
+    value: 178kg78cm.github.io/blog
+    href: /blog/

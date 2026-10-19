@@ -5,10 +5,19 @@ layout: default
 <div class="framework">
   <section class="main">
 
+    {%- assign list_layouts = "articles,home,archives,categories,tags" | split: "," -%}
+    {%- if list_layouts contains page.layout and page.title -%}
+    <header class="list-heading">
+      <p class="pf-eyebrow">{{ page.eyebrow | default: page.url | prepend: "~" | remove: ".html" }}</p>
+      <h1>{{ page.title }}</h1>
+      <p class="list-heading-count">{{ site.posts.size }} posts</p>
+    </header>
+    {%- endif -%}
+
      {{ content }}
 
   </section>
-  <section class="sidebar" style="margin-left: 15px;">
+  <section class="sidebar">
     <!-- Get sidebar items -->
     {%- if page.sidebar -%}
       {%- assign sidebar = page.sidebar -%}
