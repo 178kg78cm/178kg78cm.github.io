@@ -220,6 +220,7 @@ plugins:
 # Files that are not part of the site
 exclude:
   - README.md
+  - WRITING.md
   - tree.txt
   - Gemfile
   - Gemfile.lock
