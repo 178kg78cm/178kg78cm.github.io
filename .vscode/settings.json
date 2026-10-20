@@ -1,0 +1,11 @@
+{
+  // 글(.md)에 이미지를 붙여넣거나 끌어다 놓으면 assets/images/<글 파일명>/ 에 저장한다.
+  // 삽입되는 링크는 ../../assets/... 형태의 상대 경로지만, 글 주소가 한 단계(/YYYY-MM-DD-제목/)라서
+  // 브라우저에서 /assets/... 로 정확히 연결된다.
+  "markdown.copyFiles.destination": {
+    "/_posts/**/*.md": "/assets/images/${documentBaseName}/",
+    "/_posts/**/*.markdown": "/assets/images/${documentBaseName}/"
+  },
+  // 같은 이름이 있으면 image-1.png, image-2.png 처럼 번호를 붙인다.
+  "markdown.copyFiles.overwriteBehavior": "nameIncrementally"
+}
