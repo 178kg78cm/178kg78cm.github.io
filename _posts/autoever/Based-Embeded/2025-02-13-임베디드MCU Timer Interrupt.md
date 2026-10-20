@@ -1,9 +1,9 @@
 ---
 layout: post
 title:  "임베디드MCU : Timer Interrupt.md"
-date:   2025-02-13 +09001
-categories: 임베디드MCU
-tag: "Infineon"
+date:   2025-02-13 +0900
+categories: Embedded
+tags: [TC275]
 ---
 
 

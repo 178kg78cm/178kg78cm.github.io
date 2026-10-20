@@ -1,9 +1,14 @@
 ---
 layout: post
 title:  "Autosar (4) : Heating Project"
-date:   2025-03-19 +09001
-categories: Autoever
-tag: "autosar"
+date:   2025-03-19 +0900
+categories: AUTOSAR
+tags: [AUTOSAR]
+project:
+  name: "AUTOSAR 열선 시트 제어기"
+  summary: "SWC 4개(SeatSwitch, SHControl, SeatHeating, HeatingDial)로 열선 시트 제어기를 설계. CAN 명령 수신, 포텐셔미터(ADC) 다이얼, PWM 출력을 Sender-Receiver / Client-Server 포트와 10ms Runnable로 구성하고 IoHwAb로 하드웨어를 분리."
+  tech: [AUTOSAR, SWC, RTE, ADC, PWM]
+  order: 1
 ---
 
 ## 프로젝트 개요

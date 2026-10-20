@@ -1,9 +1,9 @@
 ---
 layout: post
 title:  "Automorive Ehternet (1) : 차량용 이더넷"
-date:   2025-03-19 +09001
-categories: [Autoever, Ethernet]
-tag: "ethernet"
+date:   2025-03-19 +0900
+categories: Network
+tags: [Ethernet]
 ---
 
 ## AUTOSAR Communication Stack

@@ -1,9 +1,9 @@
 ---
 layout: post
 title:  "코드 프로파일링과 컴파일러 최적화"
-date:   2025-02-18 +09001
-categories: 임베디드MCU
-tag: ["Infineon", "TC275"]
+date:   2025-02-18 +0900
+categories: Embedded
+tags: [TC275]
 ---
 
 ## 코드 프로파일링

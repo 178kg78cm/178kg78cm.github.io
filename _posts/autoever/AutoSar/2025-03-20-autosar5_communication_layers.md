@@ -1,9 +1,9 @@
 ---
 layout: post
 title:  "Autosar (5) : Communication Layers"
-date:   2025-03-19 +09001
-categories: Autoever
-tag: "autosar"
+date:   2025-03-19 +0900
+categories: AUTOSAR
+tags: [AUTOSAR]
 ---
 
 ![alt text](../../../assets/images/2025-03-20-autosar5_communication_layers/communication_layer.png)

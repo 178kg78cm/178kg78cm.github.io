@@ -1,9 +1,9 @@
 ---
 layout: post
 title:  "Ehternet (1) : Ehternet "
-date:   2025-03-19 +09001
-categories: Autoever
-tag: "ethernet"
+date:   2025-03-19 +0900
+categories: Network
+tags: [Ethernet]
 ---
 
 두가닥의 선으로 통신을 가능하게 한 것이 can 통신

@@ -3,7 +3,7 @@ layout: post
 title:  "코딩테스트에서의 시간 복잡도와 알고리즘"
 date:   2023-07-01 22:01:29 +0900
 categories: Algorithm
-tag: "Time complexity"
+tags: [Time Complexity]
 ---
 
 코딩테스트에서는 **입력 크기**과 **시간 제한**에 맞는 **적절한 시간 복잡도**를 가진 알고리즘을 선택해야한다. 일반적으로 **1초에 약 1억 번의 연산**을 진행한다 가정한다.

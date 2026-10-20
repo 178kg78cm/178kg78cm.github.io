@@ -1,9 +1,8 @@
 ---
 layout: post
 title:  "자동차 사이버보안" 
-categories: SecureCoding
-
-tags: ["requirement engineering", "software development"] 
+categories: Security
+tags: [Security, ISO21434, A-SPICE]
 ---
 ## Cybersecurity Overview
 자동차 사이버 보안의 중요성이 커지고있다.
