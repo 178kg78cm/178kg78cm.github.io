@@ -5,13 +5,12 @@ date:   2025-03-19 +09001
 categories: Autoever
 tag: "autosar"
 ---
-com
 
-![alt text](/assets/images/communication_layer.png)
+![alt text](../../../assets/images/2025-03-20-autosar5_communication_layers/communication_layer.png)
 
-![alt text](communication_layer_specify-3.png)
+![alt text](../../../assets/images/2025-03-20-autosar5_communication_layers/communication_layer_specify.png)
 CAN(차량에서 가장 많이 사용)과 Ethernet 많이 사용하고,
-LIN은 없어지는 추새이며 CAN을 초과하는 대역폭을 Flex-ray가 담당한다.
+LIN은 없어지는 추세이며 CAN을 초과하는 대역폭을 Flex-ray가 담당한다.
 
 • 통신 하드웨어 추상화
 ▪ 통신 컨트롤러와 ECU 하드웨어의 위치에서 추상
@@ -19,7 +18,7 @@ LIN은 없어지는 추새이며 CAN을 초과하는 대역폭을 Flex-ray가 �
  ▪ 모든 통신 시스템에는 특정 통신 하드웨어 추상화가 필요합니다(예: LIN, CAN, FlexRay의 경우).
  ▪ 구현은 μC에 독립적이며, ECU 하드웨어와 외부 장치에 따라 다릅니다.
 
-![alt text](image-1.png)
+![alt text](../../../assets/images/2025-03-20-autosar5_communication_layers/image-1.png)
 
  Com이 가장 중요
 통신 서비스 – 일반
@@ -47,9 +46,9 @@ LIN은 없어지는 추새이며 CAN을 초과하는 대역폭을 Flex-ray가 �
 
 
 
- ![alt text](image.png)
-　SW-C 컴포넌트에서 autosar interface를 통해서 RTEdp ComSignal을 보낸다.
-PduR
+ ![alt text](../../../assets/images/2025-03-20-autosar5_communication_layers/image.png)
+　SW-C 컴포넌트에서 autosar interface를 통해서 RTE에 ComSignal을 보낸다. 이 신호는 COM에서 I-PDU로 묶여 PduR로 전달된다.
+
 
 　CAN interface 위에는 어떤 특정 데이터를 보낸다는 정보만 들어가있고 이것을 몇번 controller 에 보내는지는 알지 못한다.
 CAN interface 아래 부터는 명확한 controller번호와 buffer 위치까지 정해줘야 한다.
