@@ -1,87 +1,52 @@
 # 메인(/) 포트폴리오 페이지 내용.
-# 블로그 글과 About 페이지에서 확인되는 내용만 채웠습니다.
-# "TODO" 표시가 있는 항목은 직접 확인/수정해 주세요.
+# 공개 페이지이므로 개인정보(연락처 외), 고객사·차종명, 사내 사양 정보는 넣지 않는다.
 
 name: 조현호
 name_en: Embedded
-label: "// PORTFOLIO 2026"
+label: "// AUTOMOTIVE EMBEDDED SW"
 intro: >-
-  임베디드 소프트웨어를 공부하는 컴퓨터공학 전공생. MCU 레지스터부터 RTOS, AUTOSAR,
-  차량 네트워크까지 하드웨어와 소프트웨어의 경계를 공부하고 기록합니다.
+  차량 제어기 소프트웨어 엔지니어. AUTOSAR BSW/ASW 설계, 차량 네트워크와 진단,
+  사이버 보안 검증 자동화를 다룹니다. 공부하고 실험한 내용을 기술 블로그에 정리합니다.
 chips:
-  - Seoul, KR
-  - 광운대학교 컴퓨터공학   # TODO: 정확한 학과명
-  - C / C++ / Embedded
-
-hero_image: "https://images.unsplash.com/photo-1510519138101-570d1dca3d66?w=1400&h=400&fit=crop&auto=format"
-hero_caption: "~/firmware · arm-none-eabi-gcc · (main) ✓"
+  - 광운대학교 컴퓨터정보공학부
 
 skills:
   - category: Languages
-    items: [C, C++, Python]
+    items: [C, C++, Python, CAPL]
   - category: Embedded
-    items: [STM32, Infineon TC275, Arduino, Raspberry Pi, OSEK/AUTOSAR OS]
+    items: [AUTOSAR BSW/RTE, AURIX TC275, STM32, RTOS]
   - category: Automotive
-    items: [AUTOSAR, CAN, Automotive Ethernet, OTA, A-SPICE, ISO 26262]
+    items: [CAN / CAN FD, Automotive Ethernet, UDS, SecOC, ISO 26262, A-SPICE]
   - category: Tools
-    items: [CANoe, Ubuntu, Git]
+    items: [CANoe, TRACE32, MATLAB/Simulink, Jenkins, Git]
 
 # 경력/교육. period, role, company, desc, tags, link(선택)
 experience:
-  - period: "2024.12 — 2025.04"
-    role: "모빌리티 SW 교육 과정"   # TODO: 정확한 과정명
+  - period: "2025.09 — 현재"
+    role: "제어기SW설계"
+    desc: >-
+      차량 전력·통신 제어기의 BSW 설계와 양산 대응을 맡고 있습니다.
+    tags: [AUTOSAR, SecOC, UDS, CANoe, TRACE32]
+  - period: "2024.12 — 2025.06"
+    role: "임베디드 스쿨 (1,000시간)"
     company: "현대오토에버"
     desc: >-
-      C/C++, 임베디드 MCU(STM32, Infineon TC275), 코드 최적화, 시큐어 코딩, 요구공학,
-      A-SPICE·ISO 26262, AUTOSAR, 차량용 이더넷, CAN/CANoe, 차량용 RTOS(OSEK), OTA까지
-      자동차 소프트웨어 개발 전 과정을 학습.
-    tags: [AUTOSAR, CAN, STM32, RTOS]
-    link: /categories/#h-Autoever
-  - period: "재학 중"   # TODO: 입학/졸업 시기
-    role: "컴퓨터공학 전공"
+      TC275·STM32 MCU, 차량용 RTOS, AUTOSAR, CAN·Ethernet. ISO 26262·A-SPICE 기반 팀 프로젝트 수행,
+      최우수 프로젝트상.
+    tags: [TC275, STM32, CAN, RTOS]
+  - period: "2019.03 — 2025.08"
+    role: "컴퓨터정보공학부 학사"
     company: "광운대학교"
     desc: >-
-      임베디드 시스템과 컴퓨터공학 기초(자료구조·알고리즘, 운영체제, 컴퓨터구조)를 공부하고 있습니다.
-    tags: [C, Algorithm, OS]
+      헬스케어 센서 연구실 학부연구생(UWB 레이더·PVDF 센서 신호처리). 임베디드SW경진대회 우수상,
+      대한의용생체공학회 우수 논문상.
+    tags: [Signal Processing, MATLAB]
 
-# 프로젝트. post에 블로그 글 제목을 정확히 적으면 카드가 그 글로 연결됩니다.
-projects:
-  - no: "01"
-    name: "AUTOSAR Heating Project"
-    desc: >-
-      AUTOSAR SWC 4개로 열선 시트 제어기를 구성. 포텐셔미터(ADC) 입력으로 강도를 조절하고
-      PWM으로 LED 밝기를 제어, Sender-Receiver / Client-Server 포트와 10ms 주기 Runnable 설계.
-    tech: [AUTOSAR, SWC, ADC, PWM]
-    year: "2025"
-    post: "Autosar (4) : Heating Project"
-  - no: "02"
-    name: "AUTOSAR Communication Stack 실습"
-    desc: >-
-      AUTOSAR Communication Layers(COM, PduR 등) 구조를 정리하고 실습으로 신호 송수신 경로를 확인.
-    tech: [AUTOSAR, CAN, ComStack]
-    year: "2025"
-    post: "Autosar (5) : Communication Layers"
-  - no: "03"
-    name: "CANoe 네트워크 시뮬레이션"
-    desc: >-
-      CANdb++로 메시지/시그널을 정의하고 CANoe에서 주기·DLC·패턴별 송신 노드를 구성해 차량 네트워크를 시뮬레이션.
-    tech: [CANoe, CANdb++, CAN]
-    year: "2025"
-  - no: "04"
-    name: "기업 정보 크롤링"
-    desc: >-
-      네이버 뉴스·증권·데이터랩 API를 크롤링해 기업 가치 평가를 돕는 데스크톱 툴. 검색 트렌드 시각화와 Tkinter GUI 제공.
-    tech: [Python, BeautifulSoup, pandas, Tkinter]
-    year: "2023"
-    post: "기업 정보 크롤링"
+# 프로젝트 카드는 글 front matter의 `project:` 항목으로 만든다. (README 참고)
 
-# 학습 로그는 최근 블로그 글에서 자동으로 만들어집니다. 표시 개수:
+# 메인에 표시할 최근 글 개수
 study_count: 5
 
-contact_heading: "함께 만들어"
-contact_heading_sub: "볼까요?"
-contact_text: >-
-  임베디드 시스템, 펌웨어, 자동차 소프트웨어 관련 이야기라면 언제든 환영합니다.
 links:
   - label: Email
     value: jhh7550@gmail.com
@@ -89,6 +54,3 @@ links:
   - label: GitHub
     value: github.com/178kg78cm
     href: "https://github.com/178kg78cm"
-  - label: Blog
-    value: 178kg78cm.github.io/blog
-    href: /blog/

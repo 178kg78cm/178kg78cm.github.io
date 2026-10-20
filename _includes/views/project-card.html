@@ -1,0 +1,22 @@
+{%- comment -%}
+  Project card built from a post's front matter `project:`.
+  `project: true` or partial fields fall back to the post title, excerpt and tags.
+  Params: include.post, include.no
+{%- endcomment -%}
+{%- assign p = include.post -%}
+{%- assign name = p.project.name | default: p.title -%}
+{%- assign summary = p.project.summary | default: p.excerpt | strip_html | strip_newlines | truncate: 160 -%}
+{%- assign tech = p.project.tech | default: p.tags -%}
+<a class="pf-card" href="{{ p.url | relative_url }}">
+  <div class="pf-card-meta">
+    <span>{% if include.no < 10 %}0{% endif %}{{ include.no }}</span>
+    <span>{{ p.date | date: "%Y" }}</span>
+  </div>
+  <h3>{{ name | escape }}</h3>
+  <p>{{ summary }}</p>
+  <div class="pf-tags">
+    {%- for t in tech -%}
+    <span class="pf-tag-outline">{{ t }}</span>
+    {%- endfor -%}
+  </div>
+</a>

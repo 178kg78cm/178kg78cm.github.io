@@ -35,13 +35,6 @@ layout: default
         {%- endfor -%}
       </div>
     </div>
-
-    {%- if pf.hero_image -%}
-    <div class="pf-photo">
-      <img src="{{ pf.hero_image }}" alt="개발 워크스페이스" loading="lazy">
-      <div class="pf-photo-overlay"><p>{{ pf.hero_caption }}</p></div>
-    </div>
-    {%- endif -%}
   </section>
 
   <!-- Experience -->
@@ -55,9 +48,9 @@ layout: default
           <div>
             <div class="pf-row-head">
               <h3>{{ exp.role }}</h3>
-              {%- if exp.link -%}
+              {%- if exp.company and exp.link -%}
               <a class="pf-company" href="{{ exp.link | relative_url }}">@ {{ exp.company }}</a>
-              {%- else -%}
+              {%- elsif exp.company -%}
               <span class="pf-company">@ {{ exp.company }}</span>
               {%- endif -%}
             </div>
@@ -79,42 +72,32 @@ layout: default
     <div class="pf-container">
       {%- include views/section-label.html label="02" title="프로젝트" -%}
       <div class="pf-projects">
-        {%- for p in pf.projects -%}
-        {%- assign project_post = nil -%}
-        {%- if p.post -%}
-          {%- assign project_post = site.posts | where: "title", p.post | first -%}
-        {%- endif -%}
-        {%- if project_post -%}
-        <a class="pf-card" href="{{ project_post.url | relative_url }}">
-        {%- else -%}
-        <div class="pf-card">
-        {%- endif -%}
-          <div class="pf-card-meta">
-            <span>{{ p.no }}</span>
-            <span>{{ p.year }}</span>
-          </div>
-          <h3>{{ p.name }}</h3>
-          <p>{{ p.desc }}</p>
-          <div class="pf-tags">
-            {%- for t in p.tech -%}
-            <span class="pf-tag-outline">{{ t }}</span>
-            {%- endfor -%}
-          </div>
-        {%- if project_post -%}
-        </a>
-        {%- else -%}
-        </div>
-        {%- endif -%}
+        {%- comment -%} 글 front matter에 `project:`가 있는 글을 order 순서로, order가 없으면 최신순으로 뒤에 붙인다. {%- endcomment -%}
+        {%- assign project_posts = site.posts | where_exp: "item", "item.project" -%}
+        {%- assign n = 0 -%}
+        {%- for i in (1..99) -%}
+          {%- for post in project_posts -%}
+            {%- if post.project.order == i -%}
+              {%- assign n = n | plus: 1 -%}
+              {%- include views/project-card.html post=post no=n -%}
+            {%- endif -%}
+          {%- endfor -%}
+        {%- endfor -%}
+        {%- for post in project_posts -%}
+          {%- unless post.project.order -%}
+            {%- assign n = n | plus: 1 -%}
+            {%- include views/project-card.html post=post no=n -%}
+          {%- endunless -%}
         {%- endfor -%}
       </div>
     </div>
   </section>
 
-  <!-- Study logs: latest blog posts -->
+  <!-- Recent blog posts -->
   <section id="study" class="pf-section">
     <div class="pf-container">
-      {%- include views/section-label.html label="03" title="학습 로그" -%}
-      <p class="pf-section-sub">최근 블로그에 정리한 주제들. <a href="{{ '/blog/' | relative_url }}">전체 글 보기 →</a></p>
+      {%- include views/section-label.html label="03" title="최근 글" -%}
+      <p class="pf-section-sub"><a href="{{ '/blog/' | relative_url }}">전체 글 보기 →</a> · <a href="{{ '/categories/' | relative_url }}">카테고리</a></p>
       <div class="pf-rows">
         {%- assign study_count = pf.study_count | default: 5 -%}
         {%- for post in site.posts limit: study_count -%}
@@ -128,7 +111,7 @@ layout: default
               <span class="pf-tag-fill">#{{ t }}</span>
               {%- endfor -%}
               {%- for t in post.tags -%}
-              {%- if t != "" -%}<span class="pf-tag-fill">#{{ t }}</span>{%- endif -%}
+              {%- unless t == "" or post.categories contains t -%}<span class="pf-tag-fill">#{{ t }}</span>{%- endunless -%}
               {%- endfor -%}
             </div>
           </div>
@@ -142,23 +125,14 @@ layout: default
   <section id="contact" class="pf-section pf-section-last">
     <div class="pf-container">
       {%- include views/section-label.html label="04" title="연락" -%}
-      <div class="pf-contact">
-        <div>
-          <h2 class="pf-contact-title">
-            {{ pf.contact_heading }}<br>
-            <span>{{ pf.contact_heading_sub }}</span>
-          </h2>
-          <p class="pf-row-desc">{{ pf.contact_text }}</p>
-        </div>
-        <div class="pf-links">
-          {%- for link in pf.links -%}
-          {%- assign first_char = link.href | slice: 0 -%}
-          <a class="pf-link" href="{% if first_char == '/' %}{{ link.href | relative_url }}{% else %}{{ link.href }}{% endif %}">
-            <span class="pf-link-label">{{ link.label | upcase }}</span>
-            <span class="pf-link-value">{{ link.value }}</span>
-          </a>
-          {%- endfor -%}
-        </div>
+      <div class="pf-links pf-links-inline">
+        {%- for link in pf.links -%}
+        {%- assign first_char = link.href | slice: 0 -%}
+        <a class="pf-link" href="{% if first_char == '/' %}{{ link.href | relative_url }}{% else %}{{ link.href }}{% endif %}">
+          <span class="pf-link-label">{{ link.label | upcase }}</span>
+          <span class="pf-link-value">{{ link.value }}</span>
+        </a>
+        {%- endfor -%}
       </div>
     </div>
   </section>

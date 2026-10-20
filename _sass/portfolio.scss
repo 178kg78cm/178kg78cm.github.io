@@ -384,38 +384,6 @@ html[data-scroll-status] footer.site-footer {
   }
 }
 
-.pf-photo {
-  position: relative;
-  margin-top: 48px;
-  height: clamp(160px, 30vw, 300px);
-  border: 1px solid var(--color-border);
-  overflow: hidden;
-
-  img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    filter: brightness(0.35) saturate(0.3);
-  }
-}
-
-.pf-photo-overlay {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: flex-end;
-  padding: 16px;
-  background: linear-gradient(to top, rgba(10, 10, 11, 0.8) 0%, transparent 60%);
-
-  p {
-    margin: 0;
-    font-family: var(--font-mono);
-    font-size: 11px;
-    color: var(--color-muted);
-    letter-spacing: 0.08em;
-  }
-}
-
 .pf-section {
   border-top: 1px solid var(--color-border);
   padding: 64px 0;
@@ -599,31 +567,19 @@ a.pf-row-study {
 }
 
 /* Contact */
-.pf-contact {
-  margin-top: 40px;
-  display: grid;
-  gap: 40px;
-  align-items: end;
-
-  @media (min-width: 768px) {
-    grid-template-columns: 1fr 1fr;
-    gap: 64px;
-  }
-}
-
-.pf-contact-title {
-  font-size: clamp(32px, 6vw, 60px);
-  font-weight: 700;
-  line-height: 1.1;
-  margin-bottom: 20px;
-
-  span { color: var(--color-muted); font-weight: 300; }
-}
-
 .pf-links {
   display: flex;
   flex-direction: column;
   gap: 12px;
+}
+
+.pf-links-inline {
+  margin-top: 40px;
+
+  @media (min-width: 640px) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
 }
 
 .pf-link {
