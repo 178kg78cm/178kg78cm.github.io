@@ -1,14 +1,15 @@
 ---
 layout: post
-title:  "Autosar (5) : Communication Layers"
+title: "AUTOSAR (5) : Communication Layers"
+description: "AUTOSAR 통신 스택의 계층 구조와 통신 하드웨어 추상화, CAN·LIN·FlexRay·Ethernet의 역할을 정리합니다."
 date:   2025-03-19 +0900
 categories: AUTOSAR
 tags: [AUTOSAR]
 ---
 
-![alt text](../../../assets/images/2025-03-20-autosar5_communication_layers/communication_layer.png)
+![AUTOSAR 계층 구조에서 통신 스택의 위치](../../../assets/images/2025-03-20-autosar5_communication_layers/communication_layer.png)
 
-![alt text](../../../assets/images/2025-03-20-autosar5_communication_layers/communication_layer_specify.png)
+![AUTOSAR 통신 관련 BSW 모듈](../../../assets/images/2025-03-20-autosar5_communication_layers/communication_layer_specify.png)
 CAN(차량에서 가장 많이 사용)과 Ethernet 많이 사용하고,
 LIN은 없어지는 추세이며 CAN을 초과하는 대역폭을 Flex-ray가 담당한다.
 
@@ -18,7 +19,7 @@ LIN은 없어지는 추세이며 CAN을 초과하는 대역폭을 Flex-ray가 �
  ▪ 모든 통신 시스템에는 특정 통신 하드웨어 추상화가 필요합니다(예: LIN, CAN, FlexRay의 경우).
  ▪ 구현은 μC에 독립적이며, ECU 하드웨어와 외부 장치에 따라 다릅니다.
 
-![alt text](../../../assets/images/2025-03-20-autosar5_communication_layers/image-1.png)
+![CanIf와 CAN Driver의 PDU와 HW Object 매핑](../../../assets/images/2025-03-20-autosar5_communication_layers/image-1.png)
 
  Com이 가장 중요
 통신 서비스 – 일반
@@ -46,7 +47,7 @@ LIN은 없어지는 추세이며 CAN을 초과하는 대역폭을 Flex-ray가 �
 
 
 
- ![alt text](../../../assets/images/2025-03-20-autosar5_communication_layers/image.png)
+ ![CAN 통신 스택의 계층별 송수신 흐름](../../../assets/images/2025-03-20-autosar5_communication_layers/image.png)
 　SW-C 컴포넌트에서 autosar interface를 통해서 RTE에 ComSignal을 보낸다. 이 신호는 COM에서 I-PDU로 묶여 PduR로 전달된다.
 
 

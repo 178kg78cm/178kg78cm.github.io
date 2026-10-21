@@ -1,6 +1,7 @@
 ---
 layout: post
 title:  "이진 탐색 (Binary Search)"
+description: "정렬된 데이터에서 탐색 범위를 절반씩 줄이는 이진 탐색의 동작 과정과 C++ 예제 코드입니다."
 date:   2024-10-28 22:53:42 +0900
 categories: Algorithm
 tags: [Binary Search]

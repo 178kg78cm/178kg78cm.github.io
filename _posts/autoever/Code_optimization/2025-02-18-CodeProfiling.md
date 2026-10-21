@@ -1,6 +1,7 @@
 ---
 layout: post
 title:  "코드 프로파일링과 컴파일러 최적화"
+description: "실행 시간 측정으로 코드를 프로파일링하는 방법과 핍홀, 지역, 전역, 루프, 프로시저 간 컴파일러 최적화, 임베디드에서 주의할 점을 정리합니다."
 date:   2025-02-18 +0900
 categories: Embedded
 tags: [TC275]
@@ -35,12 +36,12 @@ tags: [TC275]
 ```
 
 - Reg 직접 제어
-![alt text](../../../assets/images/2025-02-18-CodeProfiling/regi.png)
+![레지스터를 직접 제어할 때의 디스어셈블리](../../../assets/images/2025-02-18-CodeProfiling/regi.png)
 instrction 6C~C4
 
 - Ifx 함수 제어
-![alt text](../../../assets/images/2025-02-18-CodeProfiling/func1.png)
-![alt text](../../../assets/images/2025-02-18-CodeProfiling/func2.png)
+![iLLD 함수로 제어할 때의 디스어셈블리 (1)](../../../assets/images/2025-02-18-CodeProfiling/func1.png)
+![iLLD 함수로 제어할 때의 디스어셈블리 (2)](../../../assets/images/2025-02-18-CodeProfiling/func2.png)
 instrction 6C~E4
 
 Disassembly의 차이가 32만큼 차이가 난다. (0xE4 - 0xC4 = 0x20, 즉 **32바이트의 명령어가 더 필요**하다.)
@@ -55,8 +56,6 @@ Disassembly의 차이가 32만큼 차이가 난다. (0xE4 - 0xC4 = 0x20, 즉 **3
 1. 함수를 사용해서 코드를 짠다.
 2. 프로파일링으로 **실제로 시간이 많이 걸리는 부분(Hot spot)** 을 찾는다.
 3. 이후 최적화할 때, 그 부분만 함수를 레지스터를 직접 접근하는 방향으로 수정한다.
-
-> "추측하지 말고 측정하라." 최적화는 항상 측정 결과를 근거로 해야 한다.
 
 ### 실행 시간 측정 방법
 

@@ -1,6 +1,7 @@
 ---
 layout: post
-title:  "Autosar (4) : Heating Project"
+title: "AUTOSAR (4) : Heating Project"
+description: "시트 히터를 제어하는 AUTOSAR Heating Project의 컴포넌트 구성과 동작 흐름, 설계 포인트를 정리합니다."
 date:   2025-03-19 +0900
 categories: AUTOSAR
 tags: [AUTOSAR]
@@ -19,7 +20,7 @@ project:
 - LED4 (Port E Pin 7): 열선 시트 강도 (PWM)
 - Potentiometer (Port B Pin 4): 열선 시트 강도 조절용 다이얼 (ADC)
 
-![alt text](../../../assets/images/2025-03-20-autosar4_HeatingProject/practice_ASW_architecture.png)
+![Heating Project ASW 컴포넌트 구조](../../../assets/images/2025-03-20-autosar4_HeatingProject/practice_ASW_architecture.png)
 각 4개의 component를 구현한다. 
 
 - Symbol 설명
@@ -57,7 +58,7 @@ project:
 4. **상태 표시** : SHControl은 `DialLed`를 Queue 방식 Sender-Receiver로 보내고, HeatingDial이 LED로 상태를 표시한다. 동작 확인용 Alive LED도 주기적으로 토글한다.
 5. **상태 보고** : 현재 상태는 SeatSwitch의 RcStatus를 통해 다시 CAN으로 송신된다.
 
-## 이 구조에서 배운 점
+## 설계 포인트
 
 - **SHControl은 하드웨어를 전혀 모른다.** 핀 번호, ADC 채널, PWM 타이머가 바뀌어도 SHControl 코드는 그대로다. 바뀌는 것은 IoHwAb 아래의 설정뿐이다.
 - 주기적으로 바뀌는 값(스위치 상태)은 **Sender-Receiver**, 필요할 때 결과를 받아야 하는 동작(다이얼 위치 읽기, 출력 설정)은 **Client-Server**로 나눈 것이 핵심이다.
