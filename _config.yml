@@ -1,6 +1,5 @@
 # Site settings
 title: 조현호 임베디드 블로그
-subtile : 256 # 178kg78cm → 178 + 78 = 256 = 2^8
 email: jhh7550@gmail.com
 author: 178kg78cm
 locale: ko_KR

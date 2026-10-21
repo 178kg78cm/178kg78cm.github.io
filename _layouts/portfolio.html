@@ -14,6 +14,9 @@ layout: default
           <span class="pf-hero-name">{{ pf.name }}</span><br>
           <em>{{ pf.name_en }}</em>
         </h1>
+        {%- if pf.signature -%}
+        <p class="pf-hero-signature">{{ pf.signature }}</p>
+        {%- endif -%}
         <p class="pf-hero-intro">{{ pf.intro }}</p>
         <div class="pf-chips">
           {%- for chip in pf.chips -%}
@@ -40,7 +43,7 @@ layout: default
   <!-- Experience -->
   <section id="experience" class="pf-section">
     <div class="pf-container">
-      {%- include views/section-label.html label="01" title="경력" -%}
+      {%- include views/section-label.html label="0x01" title="경력" -%}
       <div class="pf-rows">
         {%- for exp in pf.experience -%}
         <div class="pf-row pf-row-exp">
@@ -70,7 +73,7 @@ layout: default
   <!-- Projects -->
   <section id="projects" class="pf-section">
     <div class="pf-container">
-      {%- include views/section-label.html label="02" title="프로젝트" -%}
+      {%- include views/section-label.html label="0x02" title="프로젝트" -%}
       <div class="pf-projects">
         {%- comment -%} 글 front matter에 `project:`가 있는 글을 order 순서로, order가 없으면 최신순으로 뒤에 붙인다. {%- endcomment -%}
         {%- assign project_posts = site.posts | where_exp: "item", "item.project" -%}
@@ -96,7 +99,7 @@ layout: default
   <!-- Recent blog posts -->
   <section id="study" class="pf-section">
     <div class="pf-container">
-      {%- include views/section-label.html label="03" title="최근 글" -%}
+      {%- include views/section-label.html label="0x03" title="최근 글" -%}
       <p class="pf-section-sub"><a href="{{ '/blog/' | relative_url }}">전체 글 보기 →</a> · <a href="{{ '/categories/' | relative_url }}">카테고리</a></p>
       <div class="pf-rows">
         {%- assign study_count = pf.study_count | default: 5 -%}
@@ -124,7 +127,7 @@ layout: default
   <!-- Contact -->
   <section id="contact" class="pf-section pf-section-last">
     <div class="pf-container">
-      {%- include views/section-label.html label="04" title="연락" -%}
+      {%- include views/section-label.html label="0x04" title="연락" -%}
       <div class="pf-links pf-links-inline">
         {%- for link in pf.links -%}
         {%- assign first_char = link.href | slice: 0 -%}

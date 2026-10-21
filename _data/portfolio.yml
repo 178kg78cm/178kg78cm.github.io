@@ -4,6 +4,7 @@
 name: 조현호
 name_en: Embedded
 label: "// AUTOMOTIVE EMBEDDED SW"
+signature: "178 + 78 = 256 = 2⁸ = 0b1_0000_0000" # 178kg78cm
 intro: >-
   차량 제어기 소프트웨어 엔지니어. AUTOSAR BSW/ASW 설계, 차량 네트워크와 진단,
   사이버 보안 검증 자동화를 다룹니다. 공부하고 실험한 내용을 기술 블로그에 정리합니다.
